@@ -4,7 +4,7 @@ This is my Advent of Code repo for 2022.
 
 This year, I think I'm trying it in Typescript. There's a lot of leaning on Node.js here, which I'm not familiar with.
 
-I am using VSCode as my IDE of choice. I have added the `Jest`, `Jest Test Explorer`, `Test Explorer UI` and the `JavaSCript and TypeScript` extensions.
+I am using VSCode as my IDE of choice.
 
 ## Initial Setup
 - Install node: `cup nodejs -y` (when using [Chocolatey](https://docs.chocolatey.org))
