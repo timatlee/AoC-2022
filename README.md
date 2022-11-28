@@ -8,6 +8,20 @@ I am using VSCode as my IDE of choice.
 
 ## Initial Setup
 - Install node: `cup nodejs -y` (when using [Chocolatey](https://docs.chocolatey.org))
-- Install tsc: `npm install -g typescript`
-- Set a VSCode task for transpiling TS: https://code.visualstudio.com/docs/typescript/typescript-compiling#_transpile-typescript-into-javascript
-- Set `tsconfig.json` to watch the directory tree so that we don't have to keep rebuilding (Add `watch: true` to `compilerOptions`. This may be an old property since it's not so simple [in the tsconfig docs](https://www.typescriptlang.org/tsconfig))
+- `npm init -y`
+- `npm i -D typescript`
+- `npm i -D jest ts-jest @types/jest`
+- `npx ts-jest config:init`
+- Set `package.json` scripts property:
+```json
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  }
+```
+
+## Subsequent Setup
+- Clone the repo
+- `npm install`
+- Start Jest runners - VSCode command pallet `Jest: Start All Runners`
+- Start tsc watch - VSCode command pallet `Tasks: Configure Tasks`, choose `tsc watch`.

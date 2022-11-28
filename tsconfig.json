@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "ES2022",
     "module": "commonjs",
-    //"outDir": "./js",
+    "outDir": "js",
     "sourceMap": true,
     "strict": true,
-    "watch": true,
+    "watch": false,
     "strictNullChecks": true,
     "noImplicitAny": true,
     "allowUnreachableCode": false,
-  }
+  },
+  "exclude": [ "./**/*.test.ts" ]
 }
