@@ -1,57 +1,49 @@
 import { ReadDataFile } from "../ReadDataFile/ReadDataFile"
 
-export function Day1p1(filename:string):number {
-    // Read the file
-    let datas:Array<string> = ReadDataFile(__dirname + '/' + filename)
+const sort = (x: number, y: number): number => {
+    return (x - y)
+}
 
-    let lastMax = -1
-    let elfNumber = 0
-    let elfCalorie = 0
-    for (let data of datas) {
-        if (data.trim().length > 0) {
-            let calCount = Number(data)
-            elfCalorie += calCount
+const splitArrayByMarker = (objs: string[], marker: string): number[][] => {
+    let object: number[] = []
+    let result: number[][] = [object]
+    for (var i: number = 0; i < objs.length; i++) {
+        if (objs[i].trim().length === 0) {
+            object = []
+            result.push(object);
         } else {
-            // Next elf...
-            if (elfCalorie > lastMax) {
-                lastMax = elfCalorie
-            }
-            elfCalorie = 0
-
+            object.push(Number(objs[i]))
         }
     }
+    return result
+}
 
-    return lastMax
+const getSums = (input: number[][]): number[] => {
+    return input.map((i) => i.reduce((a, b) => a + b, 0));
 }
 
 
-export function Day1p2(filename:string):number {
+export function Day1p1(filename: string): number {
     // Read the file
-    let datas:Array<string> = ReadDataFile(__dirname + '/' + filename)
+    let datas: Array<string> = ReadDataFile(__dirname + '/' + filename)
+    let foo = splitArrayByMarker(datas, '')
+    let bar = getSums(foo)
 
-    let maxes:number[] = []
-    let elfNumber = 0
-    let elfCalorie = 0
-    for (let data of datas) {
-        if (data.trim().length > 0) {
-            let calCount = Number(data)
-            elfCalorie += calCount
-        } else {
-            // Next elf...
-            maxes.push(elfCalorie)
-            elfCalorie = 0
-        }
-    }
-    // edge case - last elf needs ot be added.
-    maxes.push(elfCalorie)
+    return (Math.max(...bar))
+}
 
-    maxes.sort((x, y) => x > y ? 1 : x < y ? -1 : 0)
 
-    const result = maxes.slice(-3).reduce((accumulator, current) => {
-        return accumulator + current;
-      }, 0);
+export function Day1p2(filename: string): number {
+    // Read the file
+    let datas: Array<string> = ReadDataFile(__dirname + '/' + filename)
+    let foo = splitArrayByMarker(datas, '')
+    let bar = getSums(foo)
 
-    return result
+    return bar.sort(function (x, y): number { return x - y })
+        .slice(-3)
+        .reduce((accumulator, current) => {
+            return accumulator + current;
+        }, 0);
 }
 
 console.log(Day1p1("demo.txt"))
