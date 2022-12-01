@@ -1,7 +1,10 @@
-export function foo(parameter: string):string {
-    return "bar";
-}
+export function isLeap(year:number):boolean {
+    if (year % 400 === 0) {
+        return true;
+    }
+    if (year % 4 === 0 && year % 100 !== 0) {
+        return true
+    }
 
-let message: string = 'Hello World! How are you?';
-console.log(message);
-console.log(foo("bar"));
+return false
+}

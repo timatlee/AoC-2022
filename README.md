@@ -25,3 +25,11 @@ I am using VSCode as my IDE of choice.
 - `npm install`
 - Start Jest runners - VSCode command pallet `Jest: Start All Runners`
 - Start tsc watch - VSCode command pallet `Tasks: Configure Tasks`, choose `tsc watch`.
+
+## Notes!
+
+### Reading Files
+
+Last AoC, we had to read data from files, then do something with it.
+
+
