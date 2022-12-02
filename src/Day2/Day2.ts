@@ -14,7 +14,7 @@ import { ReadDataFile } from "../ReadDataFile/ReadDataFile"
 // Draw: 3
 // Loss: 0
 const part1WinState = (entry: string): number => {
-    switch (entry) {
+    switch (entry.trim()) {
         case "A X": return 3 + 1
         case "A Y": return 6 + 2
         case "A Z": return 3 + 0
@@ -38,7 +38,7 @@ const part1WinState = (entry: string): number => {
 // Y: Draw, 3
 // Z: Win, 6
 const part2WinState = (entry: string): number => {
-    switch (entry) {
+    switch (entry.trim()) {
         case "A X": return 3 + 0
         case "A Y": return 1 + 3
         case "A Z": return 2 + 6
@@ -55,29 +55,25 @@ const part2WinState = (entry: string): number => {
 export function Day2p1(filename: string): number {
     let datas = ReadDataFile(__dirname + '/' + filename)
 
-    let totalScore: number = 0
-    for (var i: number = 0; i < datas.length; i++) {
-        let score = part1WinState(datas[i].trim())
+    let totalScore: number = datas.reduce((accum, current) => {
+        return accum + part1WinState(current)
+    }, 0)
 
-        totalScore += score
-    }
     return totalScore
 }
 
 export function Day2p2(filename: string): number {
     let datas = ReadDataFile(__dirname + '/' + filename)
 
-    let totalScore: number = 0
-    for (var i: number = 0; i < datas.length; i++) {
-        let score = part2WinState(datas[i].trim())
+    let totalScore: number = datas.reduce((accum, current) => {
+        return accum + part2WinState(current)
+    }, 0)
 
-        totalScore += score
-    }
     return totalScore
 }
 
-//console.log(Day2p1("demo.txt"))
-//console.log(Day2p1("p1.txt"))
+console.log(Day2p1("demo.txt"))
+console.log(Day2p1("p1.txt"))
 
 console.log(Day2p2("demo.txt"))
 console.log(Day2p2("p1.txt"))
