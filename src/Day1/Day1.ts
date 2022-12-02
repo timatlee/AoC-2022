@@ -4,7 +4,7 @@ const sort = (x: number, y: number): number => {
     return (x - y)
 }
 
-const splitArrayByMarker = (objs: string[], marker: string): number[][] => {
+const splitArrayByMarker = (objs: string[]): number[][] => {
     let object: number[] = []
     let result: number[][] = [object]
     for (var i: number = 0; i < objs.length; i++) {
@@ -26,7 +26,7 @@ const getSums = (input: number[][]): number[] => {
 export function Day1p1(filename: string): number {
     // Read the file
     let datas: Array<string> = ReadDataFile(__dirname + '/' + filename)
-    let foo = splitArrayByMarker(datas, '')
+    let foo = splitArrayByMarker(datas)
     let bar = getSums(foo)
 
     return (Math.max(...bar))
@@ -36,7 +36,7 @@ export function Day1p1(filename: string): number {
 export function Day1p2(filename: string): number {
     // Read the file
     let datas: Array<string> = ReadDataFile(__dirname + '/' + filename)
-    let foo = splitArrayByMarker(datas, '')
+    let foo = splitArrayByMarker(datas)
     let bar = getSums(foo)
 
     return bar.sort(function (x, y): number { return x - y })

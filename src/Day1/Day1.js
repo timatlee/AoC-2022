@@ -5,7 +5,7 @@ const ReadDataFile_1 = require("../ReadDataFile/ReadDataFile");
 const sort = (x, y) => {
     return (x - y);
 };
-const splitArrayByMarker = (objs, marker) => {
+const splitArrayByMarker = (objs) => {
     let object = [];
     let result = [object];
     for (var i = 0; i < objs.length; i++) {
@@ -25,7 +25,7 @@ const getSums = (input) => {
 function Day1p1(filename) {
     // Read the file
     let datas = (0, ReadDataFile_1.ReadDataFile)(__dirname + '/' + filename);
-    let foo = splitArrayByMarker(datas, '');
+    let foo = splitArrayByMarker(datas);
     let bar = getSums(foo);
     return (Math.max(...bar));
 }
@@ -33,7 +33,7 @@ exports.Day1p1 = Day1p1;
 function Day1p2(filename) {
     // Read the file
     let datas = (0, ReadDataFile_1.ReadDataFile)(__dirname + '/' + filename);
-    let foo = splitArrayByMarker(datas, '');
+    let foo = splitArrayByMarker(datas);
     let bar = getSums(foo);
     return bar.sort(function (x, y) { return x - y; })
         .slice(-3)
