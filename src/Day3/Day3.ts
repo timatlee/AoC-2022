@@ -27,10 +27,7 @@ export function part2(filename: string): number {
 
     let groupSacks = _.chunk(datas, 3)
     let sumPriorities = groupSacks.map(function (value: string[]) {
-        let commonElements = _.intersection(
-            value[0].trim().split(''),
-            value[1].trim().split(''),
-            value[2].trim().split(''))
+        let commonElements = _.intersection(...value.map((i) => { return i.trim().split('')}))
         return getNumberFromChar(commonElements[0])
     }).reduce((accumulator, current) => { return accumulator + current }, 0)
 
