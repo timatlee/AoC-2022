@@ -13,9 +13,9 @@ function getNumberFromChar(char: string): number {
 export function part1(filename: string): number {
     let datas = ReadDataFile(__dirname + '/' + filename)
 
-    let sumPriorities = datas.map(function (entry: string) {
+    let sumPriorities = datas.map((entry: string) => {
         let splitEntry = _.chunk(entry.trim(), entry.length / 2)
-        let commonElements = _.intersection(splitEntry[0], splitEntry[1])
+        let commonElements = _.intersection(...splitEntry)
         return getNumberFromChar(commonElements[0])
     }).reduce((a, c) => { return a + c }, 0)
 
@@ -26,7 +26,7 @@ export function part2(filename: string): number {
     let datas = ReadDataFile(__dirname + '/' + filename)
 
     let groupSacks = _.chunk(datas, 3)
-    let sumPriorities = groupSacks.map(function (value: string[]) {
+    let sumPriorities = groupSacks.map((value: string[]) => {
         let commonElements = _.intersection(...value.map((i) => { return i.trim().split('')}))
         return getNumberFromChar(commonElements[0])
     }).reduce((accumulator, current) => { return accumulator + current }, 0)
