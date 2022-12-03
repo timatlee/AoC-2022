@@ -16,18 +16,10 @@ export function part1(filename: string): number {
     let sumPriorities = datas.map(function (entry: string) {
         let splitEntry = _.chunk(entry.trim(), entry.length / 2)
         let commonElements = _.intersection(splitEntry[0], splitEntry[1])
-
-        let sumPrior = commonElements.
-            map(function (value: string) {
-                let priority = getNumberFromChar(value)
-                return priority
-            })
-            .reduce((accumulator, current) => { return accumulator + current }, 0)
-        return sumPrior
+        return getNumberFromChar(commonElements[0])
     }).reduce((a, c) => { return a + c }, 0)
 
     return sumPriorities
-
 }
 
 export function part2(filename: string): number {
@@ -39,13 +31,7 @@ export function part2(filename: string): number {
             value[0].trim().split(''),
             value[1].trim().split(''),
             value[2].trim().split(''))
-        let sumPrior = commonElements.
-            map(function (value: string) {
-                let priority = getNumberFromChar(value)
-                return priority
-            })
-            .reduce((accumulator, current) => { return accumulator + current }, 0)
-        return sumPrior
+        return getNumberFromChar(commonElements[0])
     }).reduce((accumulator, current) => { return accumulator + current }, 0)
 
     return sumPriorities
