@@ -1,4 +1,5 @@
 const lineByLine = require('n-readlines');
+
 export function ReadDataFile(filename: string):string[] {
     let DataToReturn:string[] = []
     let liner = new lineByLine(filename)
