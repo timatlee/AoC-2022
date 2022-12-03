@@ -13,8 +13,6 @@ export function part2(filename:string):number {
 }
 
 
-
-
 console.log(part1("demo.txt"))
 console.log(part1("p1.txt"))
 

@@ -5,7 +5,7 @@ let part1Real = 0
 let part2Demo = 0
 let part2Real = 0
 
-describe('Day 3', () => {
+describe("This Day's Tests", () => {
     it('Part 1 Demo Input', () => {
         expect(AoC.part1("demo.txt")).toBe(part1Demo)
     })
