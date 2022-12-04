@@ -1,9 +1,9 @@
 import * as AoC from "./Day4"
 
-let part1Demo = 0
-let part1Real = 0
-let part2Demo = 0
-let part2Real = 0
+let part1Demo = 2
+let part1Real = 503
+let part2Demo = 4
+let part2Real = 827
 
 describe("This Day's Tests", () => {
     it('Part 1 Demo Input', () => {
