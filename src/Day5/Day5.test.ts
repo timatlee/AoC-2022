@@ -1,9 +1,9 @@
 import * as AoC from "./Day5"
 
-let part1Demo = 0
-let part1Real = 0
-let part2Demo = 0
-let part2Real = 0
+let part1Demo = "CMZ"
+let part1Real = "SHMSDGZVC"
+let part2Demo = "MCD"
+let part2Real = "VRZGHDFBQ"
 
 describe("This Day's Tests", () => {
     it('Part 1 Demo Input', () => {
