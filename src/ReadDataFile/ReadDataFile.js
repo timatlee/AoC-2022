@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ReadDataFileAsync = exports.ReadDataFile = void 0;
+exports.ReadDataFileAsync = exports.isNumber = exports.ReadDataFile = void 0;
 const lineByLine = require('n-readlines');
 function ReadDataFile(filename) {
     let DataToReturn = [];
@@ -15,6 +15,10 @@ function ReadDataFile(filename) {
     return DataToReturn;
 }
 exports.ReadDataFile = ReadDataFile;
+function isNumber(numStr) {
+    return !isNaN(parseFloat(numStr)) && !isNaN(+numStr);
+}
+exports.isNumber = isNumber;
 const fs = require('fs');
 const readline = require('readline');
 function ReadDataFileAsync(filename) {
